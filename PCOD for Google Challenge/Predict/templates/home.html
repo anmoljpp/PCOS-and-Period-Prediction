@@ -1,0 +1,264 @@
+<!DOCTYPE html>
+{%load static%}
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Predection</title>
+  
+  <style type="text/css">
+    .tg  {border-collapse:collapse;border-spacing:0;}
+    .tg td{border-color:black;border-style:solid;border-width:1px;font-family:Arial, sans-serif;font-size:14px;
+      overflow:hidden;padding:10px 5px;word-break:normal;}
+    .tg th{border-color:black;border-style:solid;border-width:0px;font-family:Arial, sans-serif;font-size:14px;
+      font-weight:normal;overflow:hidden;padding:10px 5px;word-break:normal;}
+    .tg .tg-0lax{text-align:left;vertical-align:top;border: none;text-align: right;}
+
+    </style>
+
+
+  <!-- <script>
+    let aj = null;
+    txt = '';
+    function process() {
+      aj = new XMLHttpRequest();
+      txt1 = (document.getElementById("fnum").value);
+      txt2 = (document.getElementById("snum").value);
+      selectElement = document.querySelector('#opt');
+      txt3 = selectElement.value;
+      if (txt3 == "+")
+        opert = "1";
+      else if (txt3 == "-")
+        opert = "2";
+      else if (txt3 == "*")
+        opert = "3";
+      else if (txt3 == "/")
+        opert = "4";
+      else
+        opert = "5";
+      console.log(txt1);
+      console.log(txt3);
+      console.log(txt2);
+
+      aj.onreadystatechange = csendreply;
+      aj.open(
+        "GET",
+        "/resultapi?fnum=" + txt1 + "&" + "&snum=" + txt2 + "&oper=" + (opert),
+        true
+      );
+      aj.send(null);
+    }
+
+    function csendreply() {
+
+      console.log(txt1);
+      if (aj.readyState == 4) {
+
+
+        let res = JSON.parse(aj.responseText);
+        let div = document.getElementById("title");
+        div.innerHTML = "<br><br><h1 style='color:red;'>RESULT<h1>";
+        div2 = document.getElementById("result");
+        result = "<center><h1 style='color:blue;'>User Choice : " + res.operator + "</h1>";
+        result += "<h1 style='color:blue;'>First Number  : " + res.fnum + "</h1>";
+        result += "<h1 style='color:blue;'>Second Number : " + res.snum + "</h1><br>";
+        result += "<h1 style='color:blue;'>Result Of  " + res.operator + " : " + res.answer + "</h1>";
+        result += "<a id='header-links' style='text-decoration: none;color: white;' href='{% url 'home' %}'><button type='button' class='btn' style='background-color:black;color:white;padding:15px;border-radius:15px;'  >Play Again</button></a><br><br>"
+        div2.innerHTML = result;
+      }
+    }
+
+  </script> -->
+
+
+
+  {% comment %} my code starts {% endcomment %}
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
+  <link href="https://fonts.googleapis.com/css?family=Montserrat" rel="stylesheet">
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.0.0/dist/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+  <style>
+    body {
+      font: 20px Montserrat, sans-serif;
+      line-height: 1.8;
+      color: white;
+      text-shadow: 2px 2px 10px #000000;
+      filter: dropshadow(color=#000000, offx=2, offy=2);
+    }
+
+    p {
+      font-size: 16px;
+    }
+
+    .margin {
+      margin-bottom: 25px;
+    }
+
+    .bg-1 {
+      background-color: #acbc1a;
+      /* Green */
+      color: #ffffff;
+    }
+
+    .bg-2 {
+      background-color: #474e5d;
+      /* Dark Blue */
+      color: #ffffff;
+    }
+
+    .bg-3 {
+      background-color: #ffffff;
+      /* White */
+      color: #555555;
+    }
+
+    .bg-4 {
+      background-color: #2f2f2f;
+      /* Black Gray */
+      color: #fff;
+    }
+
+    .container-fluid {
+      padding-top: 70px;
+      padding-bottom: 70px;
+    }
+
+    #container-v {
+      overflow-y: hidden;
+      width: 100% !important;
+    }
+
+    .child_con {
+      height: 500px;
+      float: left;
+      margin: 1em;
+    }
+
+    input[type=text] {
+
+      padding: 12px 20px;
+      margin: 8px 0;
+      box-sizing: border-box;
+      border: none;
+      background-color: white;
+      color: black;
+    }
+
+    .block {
+      display: block;
+      width: 10%;
+      border: none;
+      background-color: #04AA6D;
+      color: white;
+      padding: 14px 28px;
+      font-size: 16px;
+      cursor: pointer;
+      text-align: center;
+    }
+
+    label {
+      width: 230px;
+      font-size: 20px;
+      display: inline-block;
+      text-align: left;
+      color: white;
+    }
+
+    tg-output {
+      color: white;
+    }
+  </style>
+  <!-- {% comment %} my code ends {% endcomment %} -->
+
+
+
+</head>
+
+<body style="background-image: url('{%static 'images/final.png'%}'); background-size: 1450px 1590px;background-repeat: no-repeat;">
+
+    <div>
+      <h1 style="color:Black;padding:10px; text-align: center;font-size: 35px;"><b>PCOS Predictor</b></h1><br>
+    </div>
+  
+
+  
+
+        <form name="fm" action="/predict">
+        <table class="tg">
+          <colgroup>
+          <col style="width: 541px">
+          <col style="width: 541px">
+          </colgroup>
+            <tr>
+              <th class="tg-0lax"></th>
+              <th class="tg-0lax"></th>
+            </tr>
+          
+            <tr>
+              <td class="tg-0lax"><label for="fname">Age :</label>
+                <input type="text" id="age" name="Age" placeholder="Age (yrs)" pattern="^(0?[1-9]|[1-9][0-9]|[1][1-9][1-9]|200)$" title="Please enter a valid number between 0 and 200." required="required" /><br></td>
+             
+                <td class="tg-0lax"> <label for="name">BMI :</label>
+                  <input type="text" id="bmi" name="BMI" placeholder="BMI"  pattern="^(0?[1-9]|[1-9][0-9]|[1][1-9][1-9]|200)$" title="Please enter a valid number between 0 and 200." required="required" /><br>
+        </td>
+            </tr>
+            <tr>
+              <td class="tg-0lax"><label for="cycle">Is your cycle regular ? :</label>
+                <input type="text" id="cycle" name="Cycle" placeholder="Cycle (regular/irregular)"
+                  required="required" /><br></td>
+      
+              <td class="tg-0lax"> <label for="gain">Weight Gain :</label>
+                <input type="text" id="gain" name="Weight" placeholder="Weight Gain (yes/no)"
+                  required="required" /><br></td>
+            </tr>
+            <tr>
+              <td class="tg-0lax"><label for="hair">Hair Growth :</label>
+                <input type="text" id="hairgrowth" name="HairG" placeholder=" Facial Hair Growth (yes/no)"
+                  required="required" /><br></td>
+      
+              <td class="tg-0lax"> <label for="skin">Skin Darkening :</label>
+                <input type="text" id="skin" name="Skin" placeholder="Skin Darkening (yes/no)"
+                  required="required" /><br></td>
+            </tr>
+            <tr>
+              <td class="tg-0lax"> <label for="hair">Hair Loss :</label>
+                <input type="text" id="hairloss" name="HairL" placeholder="Hair Loss (yes/no)"
+                  required="required" /><br></td>
+      
+              <td class="tg-0lax"> <label for="pi">Pimples :</label>
+                <input type="text" id="pi" name="Pimples" placeholder="Pimples (yes/no)" required="required" /><br>
+      </td>
+            </tr>
+      
+            <tr>
+              <td class="tg-0lax"><label for="fa">Fast Food :</label>
+                <input type="text" id="fa" name="Fast" placeholder="Fast food (yes/no)" required="required" /><br></td>
+      
+              <td class="tg-0lax"><label for="re">Reguar Exercise :</label>
+                <input type="text" id="re" name="Regular" placeholder="Regular Exercise (yes/no)"
+                  required="required" />
+                  <br/></td>
+            </tr>
+      
+            <tr>
+              <td class="tg-button" style="border: none;text-align: center;"><input type="submit" style="background-color:black;color:white;padding: 10px 60px;border-radius:8px;text-align: center;font-size: 20px;" value="SUBMIT"></td>
+            
+              <td class="tg-output" style="border: none;text-align: center;font-weight: bold;font-size: 30px;"> {{msg}}</td>
+            </tr>
+          </table>
+
+    </form>
+   
+
+     <!-- {% comment %} <pre>
+         <center><input type="button" style="background-color:black;color:white;padding:15px;border-radius:15px;" value="SUBMIT" onclick="process();">
+         </center></pre> {% endcomment %} -->
+
+
+  </div>
+</body>
+
+</html>
